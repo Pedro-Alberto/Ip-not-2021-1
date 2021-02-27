@@ -17,9 +17,16 @@
             prompt(). Determine se o número digitado é par
             ou ímpar e informe ao usuário usando alert().
         */
-        let x = prompt("Informe um número par ou impar:")
+       // parseInt(): enta converter a entrada em um número válido
+       //e retona NaN se não conseguir
+        
+       let x = parseInt(prompt("Informe um número inteiro:"))
+        //verificando se o resto da divisao do número por 2 deu 0
 
-        if (x % 2 === 0){
+        if(isNaN(x)){  //conversão do parseInt() falhou
+            alert("O valor informado não é um número inteiro válido ")
+        }
+        else if (x % 2 === 0){
             alert('Esse número é par!')
         }
         else {
