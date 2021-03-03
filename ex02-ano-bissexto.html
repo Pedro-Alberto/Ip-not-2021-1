@@ -27,16 +27,16 @@
             2000: bissexto
             2013: não é
       */
-        let ano = parseInt(prompt("Informe um número inteiro:"))
+        let ano = parseInt(prompt("Informe um ano maior ou igual a 1582 :"))
 
-        if(isNaN(ano)) {  //conversão do parseInt() falhou
-            alert("O valor informado não é um número inteiro válido ")
+        if(isNaN(ano) || ano < 1582) {  //conversão do parseInt() falhou
+            alert("O ano informado não é um ano válido ")
         }
         else if (ano % 400 === 0 || ano % 4 === 0 && ano % 100 !== 0) {
-            alert('Esse ano é bissexto')
+            alert(`O ano ${ano} é bissexto`)
         }
         else {
-            alert("Esse ano não é bissexto")
+            alert('O ano ' + ano + ' não é bissexto')
         }
 
     </script>
