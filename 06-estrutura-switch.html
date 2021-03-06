@@ -26,13 +26,38 @@
 
         let x = parseFloat(prompt("Insira o primeiro número : "))
         let y = parseFloat(prompt("Insira o segundo número : "))
-        let z = prompt("Insira um operador matemático: ")
+        let operador = prompt("Insira um operador matemático: ")
         let resultado
 
         if((isNaN(x)) || (isNaN(y))) {
             alert("Erro : não são números válidos")
         }
-         else if (z === "X" || z === "x" || z === "*" ) {
+
+        else{
+            //switch..case é uma estrutura de decisão que compara uma unica variavel contra uma série de valores
+            switch(operador){
+                case "+":
+                    document.write(`O resultado da adição ${x} + ${y} é igual a :  ${x + y}  `)
+                    break
+                case "-":
+                    document.write(`O resultado da subtração ${x} - ${y} é igual a :  ${x - y}  `)
+                    break
+                case "X":   // case vazio
+                case "x":   // case vazio
+                case "*":
+                    document.write(`O resultado da multiplicação ${x} * ${y} é igual a :  ${x * y}  `)
+                    break
+                case "/":
+                case ":":
+                    document.write(`O resultado da divisão ${x} / ${y} é igual a : ${x / y}  `)
+                    break
+                default:  // "else" do switch
+                    alert("ERRO: o operador informado é inválido! ")
+
+            }
+        }
+        /*
+        else if (z === "X" || z === "x" || z === "*" ) {
             if (resultado = x * y){
                 document.write("O resultado da multiplicação é : " + resultado)
             }
@@ -54,6 +79,7 @@
         else {
             alert("Erro: o operador informado não é válido")
         }
+        */
 
     </script>
 </head>
