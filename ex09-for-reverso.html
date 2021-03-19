@@ -21,7 +21,16 @@
             5! = 5 * 4 * 3 * 2 * 1
             7! = 7 * 6 * 5 * 4 * 3 * 2 * 1         
         */
-
+        let num, valor
+        do{
+            num = parseInt(prompt("Informe um número inteiro maior que 1:"))
+        } while(isNaN(num) || num <= 1)
+        valor = 1
+        for( let i=num; i >= 1; i--){
+            valor = valor * i  
+            //document.write(soma + '<br>' )
+        }
+        alert(`O valor do fatorial é ${valor}`)
     </script>
 </head>
 <body>

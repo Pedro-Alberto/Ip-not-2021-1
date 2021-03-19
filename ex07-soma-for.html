@@ -24,7 +24,8 @@
         do{
             num1 = parseInt(prompt("Informe dois números inteiros diferentes"))
             num2 = parseInt(prompt("Informe o segundo número"))
-       } while(isNaN(num) || num1 === num2 )
+       } while(isNaN(num1) |isNaN(num2) | (num1 === num2) )
+
        if(num1 < num2){
            menor = num1
            maior = num2
@@ -34,11 +35,13 @@
            maior = num1
        }
 
-       let i
+       let i, valor
+       valor = 0
        for (i = menor; i <= maior; i++){
-           
+           valor = valor + i
+            
        }
-
+        alert(`A soma dos numeros são: ${valor}`)
 
     </script>
 </head>
