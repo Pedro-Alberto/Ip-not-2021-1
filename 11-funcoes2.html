@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //
+        //Modo "chato" do JavaScript
+        'use strict'
+
+        /*FUNÇÃO SEM RETORNO 
+         * FUNÇÃO SEM RETORNO         *          
+         *  Geralmente, funções retornam um valor para quem as chama         
+         *  por meio da palavra-chave return. No entanto, existem funções         
+         *  que apenas desempenham uma tarefa, sem retornar valor algum.        
+         *  ************************************************************/
+
+
+        function traco(tamanho) {
+            for (let i = 1; i <= tamanho; i++){
+                document.write("-")
+            }
+            document.write("<br>")
+        }
+
+        traco(50)
+        traco (100)
+
+        function agora(){
+            let diaAtual = new Date
+            return  diaAtual.getHours() + ":" + diaAtual.getMinutes() + ":" + diaAtual.getSeconds()
+        }
+
+        alert(agora())
+
+        function msgErro(){
+            alert("ERRO INESPERADO. Contate o suporte técnico pelo ramal XXX.")
+        }
+
+        msgErro()
+
+        function potencia(base, expoente) {
+            return base ** expoente
+        }
+
+        alert(potencia(2,5))
+        alert(potencia(3,3))
+
+        alert("Número aleatório: " + Math.random())
+        alert("Número aleatório: " + Math.random())
+
+        function megasena(){
+            return Math.floor(Math.random() * 60 + 1)
+        }
+
+        alert("1-Número da megasena: " + megasena())
+        alert("2-Número da megasena: " + megasena())
+        alert("3-Número da megasena: " + megasena())
+        alert("4-Número da megasena: " + megasena())
+        alert("5-Número da megasena: " + megasena())
+        alert("6-Número da megasena: " + megasena())
+    </script>
+</body>
+</html>
