@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Isto é CSS */
+        div, fieldset {
+            margin-bottom: 20px;    /* Margem inferior */
+        }
+        #saudacao {
+            background-color: limegreen;
+            padding: 10px;  /* Espaçamento interno entre o texto e a borda */
+        }
+        div label { /* Só os label que estiverem dentro de uma div */
+            display: block; /* Faz o label ocupar sua própria linha */
+        }
+    </style>
+</head>
+<body>
+        <h1>Calculadora DOM</h1>
+
+        <div>
+            <label for ="primeiro-numero">Primeiro Número</label>
+            <input id = "primeiro-numero">
+        </div>
+
+        <div>
+            <label for = "operacao">Operação</label>
+            <select id = "operacao">
+                <option>(Selecione)</option>
+                <option>Adição</option>
+                <option>Subtração</option>
+                <option>Multiplicação</option>
+                <option>Divisão</option>
+        </div>
+
+        <div>
+            <label for="segundo-numero"> Segundo Número </label>
+            <input id ="segundo-numero">
+        </div>
+
+        <div>
+            <button id = "enviar">Enviar</button>
+        </div>
+
+        <div id="resultado"></div>
+
+
+    <script>
+        //
+        //Modo "chato" do JavaScript
+        'use strict'
+
+        const elPrimeiroNumero = document.querySelector('#primeiro-numero')
+        const elSegundoNumero = document.querySelector('#segundo-numero')
+        const elOperacao = document.querySelector('#operacao')
+        const elResultado = document.querySelector('#resultado')
+        const elEnviar = document.querySelector('#enviar')
+        
+        function validar(){
+            
+            let PrimeiroNumero = parseInt(elPrimeiroNumero.value)
+            
+            if (isNaN(PrimeiroNumero) || PrimeiroNumero === 0){
+                alert("Insira o primeiro número")
+                elPrimeiroNumero.focus()
+                return false
+            }
+
+            let SegundoNumero = parseInt(elSegundoNumero)
+
+            if (isNaN(SegundoNumero) || SegundoNumero === 0){
+                alert("Insira o segundo número")
+                elSegundoNumero.focus()
+                return false
+            }
+
+            if(elOperacao.selectedIndex === 0) {
+                alert('Selecione uma operação')
+                elOperacao.focus()
+                return false
+            }         
+            return true
+            
+        }
+
+            let mensagem
+
+        function exibirMensagem(){
+            switch(elOperacao.selectedIndex) { 
+                case 1: 
+                    mensagem = (elPrimeiroNumero.value + elSegundoNumero.value)
+                    break
+                case 2:
+                    mensagem = (elPrimeiroNumero.value - elSegundoNumero.value)
+                    break
+                case 3:
+                    mensagem = (elPrimeiroNumero.value * elSegundoNumero.value)
+                    break
+                case 4:
+                    mensagem = (elPrimeiroNumero.value / elSegundoNumero.value)
+
+                
+                alert(mensagem)
+                elresultado.textContent = mensagem
+            }        
+
+        }
+        
+        
+
+        elEnviar.addEventListener('click', exibirMensagem)
+
+
+
+        
+
+
+
+    </script>
+</body>
+</html>
