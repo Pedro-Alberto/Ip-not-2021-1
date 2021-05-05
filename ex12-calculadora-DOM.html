@@ -3,122 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        /* Isto é CSS */
-        div, fieldset {
-            margin-bottom: 20px;    /* Margem inferior */
-        }
-        #saudacao {
-            background-color: limegreen;
-            padding: 10px;  /* Espaçamento interno entre o texto e a borda */
-        }
-        div label { /* Só os label que estiverem dentro de uma div */
-            display: block; /* Faz o label ocupar sua própria linha */
-        }
-    </style>
+    <title>Calculadora DOM</title>
+    
 </head>
 <body>
-        <h1>Calculadora DOM</h1>
+    <h1>Calculadora DOM</h1>
 
-        <div>
-            <label for ="primeiro-numero">Primeiro Número</label>
-            <input id = "primeiro-numero">
-        </div>
+    <div>
+        <label for="num1">Primeiro número</label>
+        <input id="num1" type="number">
+    </div>
 
-        <div>
-            <label for = "operacao">Operação</label>
-            <select id = "operacao">
-                <option>(Selecione)</option>
-                <option>Adição</option>
-                <option>Subtração</option>
-                <option>Multiplicação</option>
-                <option>Divisão</option>
-        </div>
+    <div>
+        <label for="oper">Operação</label>
+        <select id="oper">
+            <option>(Selecione)</option>
+            <option>Soma (+)</option>
+            <option>Subtração (-)</option>
+            <option>Multiplicação (*)</option>
+            <option>Divisão (/)</option>
+        </select>
+    </div>
 
-        <div>
-            <label for="segundo-numero"> Segundo Número </label>
-            <input id ="segundo-numero">
-        </div>
+    <div>
+        <label for="num2">Segundo número</label>
+        <input id="num2" type="number">
+    </div>
 
-        <div>
-            <button id = "enviar">Enviar</button>
-        </div>
+    <div>
+        <button id="calcular">Calcular</button>
+    </div>
 
-        <div id="resultado"></div>
-
+    <div id="resultado"></div>
 
     <script>
-        //
-        //Modo "chato" do JavaScript
+        // Ativa verificações adicionais de variáveis
+        // Modo "chato" do JavaScript
         'use strict'
 
-        const elPrimeiroNumero = document.querySelector('#primeiro-numero')
-        const elSegundoNumero = document.querySelector('#segundo-numero')
-        const elOperacao = document.querySelector('#operacao')
+        // 1) Capturar os elementos HTML
+        const elNum1 = document.getElementById('num1')
+        const elOper = document.getElementById('oper')
+        const elNum2 = document.getElementById('num2')
+        const elCalcular = document.querySelector('#calcular')
         const elResultado = document.querySelector('#resultado')
-        const elEnviar = document.querySelector('#enviar')
-        
-        function validar(){
-            
-            let PrimeiroNumero = parseInt(elPrimeiroNumero.value)
-            
-            if (isNaN(PrimeiroNumero) || PrimeiroNumero === 0){
-                alert("Insira o primeiro número")
-                elPrimeiroNumero.focus()
+
+        // Variáveis que conterão os valores a ser processados
+        let num1, num2
+
+        // 2) Declarar a função de validação do formulário
+        function validar() {
+
+            num1 = parseFloat(elNum1.value)
+            //num1 = Number(elNum1.value)
+            num2 = parseFloat(elNum2.value)
+
+            if(isNaN(num1)) {
+                alert('Informe o primeiro número.')
+                elNum1.focus()
                 return false
             }
 
-            let SegundoNumero = parseInt(elSegundoNumero)
+            if(elOper.selectedIndex === 0) {
+                alert('Selecione uma operação válida.')
+                elOper.focus()
+                return false   
+            }
 
-            if (isNaN(SegundoNumero) || SegundoNumero === 0){
-                alert("Insira o segundo número")
-                elSegundoNumero.focus()
+            if(isNaN(num2)) {
+                alert('Informe o segundo número.')
+                elNum2.focus()
                 return false
             }
 
-            if(elOperacao.selectedIndex === 0) {
-                alert('Selecione uma operação')
-                elOperacao.focus()
-                return false
-            }         
             return true
-            
-        }
-
-            let mensagem
-
-        function exibirMensagem(){
-            switch(elOperacao.selectedIndex) { 
-                case 1: 
-                    mensagem = (elPrimeiroNumero.value + elSegundoNumero.value)
-                    break
-                case 2:
-                    mensagem = (elPrimeiroNumero.value - elSegundoNumero.value)
-                    break
-                case 3:
-                    mensagem = (elPrimeiroNumero.value * elSegundoNumero.value)
-                    break
-                case 4:
-                    mensagem = (elPrimeiroNumero.value / elSegundoNumero.value)
-
-                
-                alert(mensagem)
-                elresultado.textContent = mensagem
-            }        
 
         }
+
+        // 3) Declarar a função que faz o cálculo, de acordo
+        // com a operação escolhida pelo usuário. Dentro desta
+        // função, deve ser ser chamada a função de validação
+        function calcular() {
+            if(validar()) {
+                let resultado
+                switch(elOper.selectedIndex) {
+                    case 1:     // soma
+                        resultado = num1 + num2
+                        break
+                    case 2:     // subtração
+                        resultado = num1 - num2
+                        break
+                    case 3:     // multiplicação
+                        resultado = num1 * num2
+                        break
+                    default:    // divisão
+                        resultado = num1 / num2    
+                }
+                // Exibe o resultado na div resultado
+                elResultado.textContent = resultado
+            }
+        }
+
+        // 4) Associar a função que faz o cálculo ao evento
+        // 'click' do botão
+        elCalcular.addEventListener('click', calcular)
         
-        
-
-        elEnviar.addEventListener('click', exibirMensagem)
-
-
-
-        
-
-
-
     </script>
 </body>
 </html>
