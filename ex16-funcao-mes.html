@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo de documento HTML</title>
+    <style>
+        #resultado{
+            background-color: rgb(164, 252, 164);
+            text-align: center;
+            font-size: 20px;
+            width: 150px; /* Largura */
+            padding: 20px;      /* Espaçamento interno */
+            /* 4 valores no margin:
+                1º top (superior)
+                2º right (direita)
+                3º bottom (inferior)
+                4º left (esquerdo)
+                Começa de cima e segue o sentido horário
+                Quando temos auto à esquerda e à direita, o 
+                elemento fica centralizado na horizontal
+            */
+            margin: 30px auto 0 auto;   /* Espaçamento externo */
+            /* Valores do box-shadow:
+               1º deslocamento horizontal
+               2º deslocamento vertical
+               3º embaçamento da sombra
+               4º cor da sombra
+            */
+            box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+
+
+      
+            
+</head>
+<body>
+    <h1>Meses</h1>
+    <label>Números</label>
+        <select id="num">
+            <option>(Selecione)</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
+            <option>11</option>
+            <option>12</option>
+        </select>
+
+    <div id="resultado">Escolha um número</div>
+    <script>
+        // 'use strict' impede que variáveis sejam declaradas
+        // sem o uso de let, var ou const
+        // Inicializar variáveis diretamente é má prática de
+        // programação
+        'use strict'
+        
+        /*
+    
+            No documento HTML, coloque um elemento <select> (veja ex12) tendo
+            como opções os números de 1 a 12, e uma <div> de resultado.
+        
+            Em JS, escreva uma função que receba um número entre 1 e 12 e retorne
+            o nome do mês correspondente (janeiro, fevereiro, etc.)
+        
+            Escreva outra função que leia qual o valor selecionado no <select> e 
+            efetue uma chamada à função anterior, passando esse valor como parâmetro
+            e capturando o resultado. Escreva o resultado na <div>.
+        
+            Finalmente, associe a segunda função ao evento 'change' do <select>.
+
+            A ideia é que, quando escolhido o NÚMERO do mês no <select>, apareça, na
+            <div> de resultado, o NOME deste mês.
+
+      */
+        let elNum = document.querySelector("#num")
+        
+        let elResultado = document.querySelector("#resultado")
+        let elMes  
+        function mes() {
+            
+            switch(elNum.selectedIndex){
+                case 0:
+                    elMes = "Escolha um número"
+                    break
+                case 1: 
+                    elMes = "Janeiro"
+                    break
+                case 2 : 
+                    elMes = "Fevereiro"
+                    break
+                case 3: 
+                    elMes = "Março"
+                    break
+                case 4: 
+                    elMes = "Abril"
+                    break
+                case 5: 
+                    elMes = "Maio"
+                    break
+                case 6:
+                    elMes = "Junho"
+                    break
+                case 7: 
+                    elMes = "Julho"
+                    break
+                case 8: 
+                    elMes = "Agosto"
+                    break
+                case 9: 
+                    elMes = "Setembro"
+                    break
+                case 10: 
+                    elMes = "Outubro"
+                    break
+                case 11:
+                    elMes = "Novembro"
+                    break
+                case 12: 
+                    elMes = "Dezembro" 
+            }
+            elResultado.innerHTML = `${elMes}`
+            return true
+        }
+
+            //Escreva outra função que leia qual o valor selecionado no <select> e 
+            //efetue uma chamada à função anterior, passando esse valor como parâmetro
+            //e capturando o resultado. Escreva o resultado na <div>.
+
+        function processo() {
+            if (mes()){
+                /*switch(elNum.value){
+                    case 0 :
+                        elResultado.innerHTML = `${elMes}`
+                    
+                        
+                }*/
+                if (elNum.value == ("0")) {
+                    elResultado.innerHTML = `${elMes}`
+                    
+                }
+            }
+        }
+
+        elNum.addEventListener('change', processo)
+    </script>
+</body>
+</html>

@@ -10,8 +10,31 @@
             margin-bottom: 20px;    /* Margem inferior */
         }
         #saudacao {
-            background-color: limegreen;
-            padding: 10px;  /* Espaçamento interno entre o texto e a borda */
+            background-color: rgb(0, 204, 255);
+            padding: 20px;  /* Espaçamento interno entre o texto e a borda */
+
+            
+            text-align: left;
+            font-size: 18px;
+            width: 400px; /* Largura */
+                  
+            /* 4 valores no margin:
+                1º top (superior)
+                2º right (direita)
+                3º bottom (inferior)
+                4º left (esquerdo)
+                Começa de cima e segue o sentido horário
+                Quando temos auto à esquerda e à direita, o 
+                elemento fica centralizado na horizontal
+            */
+            margin: 30px auto 0 auto;   /* Espaçamento externo */
+            /* Valores do box-shadow:
+               1º deslocamento horizontal
+               2º deslocamento vertical
+               3º embaçamento da sombra
+               4º cor da sombra
+            */
+            box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
         }
         div label { /* Só os label que estiverem dentro de uma div */
             display: block; /* Faz o label ocupar sua própria linha */

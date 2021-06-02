@@ -4,6 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora DOM</title>
+    <style>
+        * { /* Todos os elementos */
+            font-family: Calibri, Arial, sans;
+        }
+        div {
+            padding: 10px;
+        }
+        #resultado {
+            background-color: aqua;
+
+            text-align: center;
+            font-size: 20px;
+            width: 150px; /* Largura */
+            padding: 20px;      /* Espaçamento interno */
+            /* 4 valores no margin:
+                1º top (superior)
+                2º right (direita)
+                3º bottom (inferior)
+                4º left (esquerdo)
+                Começa de cima e segue o sentido horário
+                Quando temos auto à esquerda e à direita, o 
+                elemento fica centralizado na horizontal
+            */
+            margin: 30px auto 0 auto;   /* Espaçamento externo */
+            /* Valores do box-shadow:
+               1º deslocamento horizontal
+               2º deslocamento vertical
+               3º embaçamento da sombra
+               4º cor da sombra
+            */
+            box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+
+        }
+    </style>
     
 </head>
 <body>
@@ -34,7 +68,9 @@
         <button id="calcular">Calcular</button>
     </div>
 
-    <div id="resultado"></div>
+    <div id="resultado">
+        <hr>
+    </div>
 
     <script>
         // Ativa verificações adicionais de variáveis
