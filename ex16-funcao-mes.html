@@ -37,24 +37,23 @@
 </head>
 <body>
     <h1>Meses</h1>
-    <label>Números</label>
-        <select id="num">
-            <option>(Selecione)</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
-            <option>7</option>
-            <option>8</option>
-            <option>9</option>
-            <option>10</option>
-            <option>11</option>
-            <option>12</option>
-        </select>
+    <select>
+        <option>(Selecione)</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+        <option>10</option>
+        <option>11</option>
+        <option>12</option>
+    </select>
+    <div></div>
 
-    <div id="resultado">Escolha um número</div>
     <script>
         // 'use strict' impede que variáveis sejam declaradas
         // sem o uso de let, var ou const
@@ -69,87 +68,96 @@
         
             Em JS, escreva uma função que receba um número entre 1 e 12 e retorne
             o nome do mês correspondente (janeiro, fevereiro, etc.)
-        
+        */
+
+        function nomeMes(numMes) {
+            let nomeMes
+
+            const meses = [
+                'Janeiro', 'Fevereiro', 'Março', 'Abril',
+                'Maio', 'Junho', 'Julho', 'Agosto',
+                'Setembro', 'Outubro', 'Novembro', 'Dezembro'
+            ]
+
+            nomeMes = meses[numMes - 1]
+
+            return nomeMes
+
+            /*switch(numMes) {
+                case 1:
+                    nomeMes = 'Janeiro'
+                    break
+                case 2:
+                    nomeMes = 'Fevereiro'
+                    break
+                case 3:
+                    nomeMes = 'Março'
+                    break
+                case 4:
+                    nomeMes = 'Abril'
+                    break
+                case 5:
+                    nomeMes = 'Maio'
+                    break
+                case 6:
+                    nomeMes = 'Junho'
+                    break
+                case 7:
+                    nomeMes = 'Julho'
+                    break
+                case 8:
+                    nomeMes = 'Agosto'
+                    break
+                case 9:
+                    nomeMes = 'Setembro'
+                    break
+                case 10:
+                    nomeMes = 'Outubro'
+                    break
+                case 11:
+                    nomeMes = 'Novembro'
+                    break
+                default:
+                    nomeMes = 'Dezembro'
+            }*/
+
+            
+        }
+
+        /* 
             Escreva outra função que leia qual o valor selecionado no <select> e 
             efetue uma chamada à função anterior, passando esse valor como parâmetro
             e capturando o resultado. Escreva o resultado na <div>.
+        */
+        // Capturar os elementos HTML
+        const elSelect = document.querySelector('select')
+        const elResult = document.querySelector('div')
+        
+        function mostraNomeMes() {
+
+            let num = elSelect.selectedIndex
+
+            if(num > 0) {
+                let nome = nomeMes(num)
+                elResult.textContent = nome
+            }
+            else {
+                elResult.textContent = ''
+            }
+        }
+
+        /*
         
             Finalmente, associe a segunda função ao evento 'change' do <select>.
+        */
 
+        elSelect.addEventListener('change', mostraNomeMes)
+
+        /*
             A ideia é que, quando escolhido o NÚMERO do mês no <select>, apareça, na
             <div> de resultado, o NOME deste mês.
-
       */
-        let elNum = document.querySelector("#num")
-        
-        let elResultado = document.querySelector("#resultado")
-        let elMes  
-        function mes() {
             
-            switch(elNum.selectedIndex){
-                case 0:
-                    elMes = "Escolha um número"
-                    break
-                case 1: 
-                    elMes = "Janeiro"
-                    break
-                case 2 : 
-                    elMes = "Fevereiro"
-                    break
-                case 3: 
-                    elMes = "Março"
-                    break
-                case 4: 
-                    elMes = "Abril"
-                    break
-                case 5: 
-                    elMes = "Maio"
-                    break
-                case 6:
-                    elMes = "Junho"
-                    break
-                case 7: 
-                    elMes = "Julho"
-                    break
-                case 8: 
-                    elMes = "Agosto"
-                    break
-                case 9: 
-                    elMes = "Setembro"
-                    break
-                case 10: 
-                    elMes = "Outubro"
-                    break
-                case 11:
-                    elMes = "Novembro"
-                    break
-                case 12: 
-                    elMes = "Dezembro" 
-            }
-            elResultado.innerHTML = `${elMes}`
-            return true
-        }
-
-            //Escreva outra função que leia qual o valor selecionado no <select> e 
-            //efetue uma chamada à função anterior, passando esse valor como parâmetro
-            //e capturando o resultado. Escreva o resultado na <div>.
-
-        function processo() {
-            if (mes()){
-                /*switch(elNum.value){
-                    case 0 :
-                        elResultado.innerHTML = `${elMes}`
-                    
-                        
-                }*/
-                if (elNum.value == ("0")) {
-                    elResultado.innerHTML = `${elMes}`
-                    
-                }
-            }
-        }
-
-        elNum.addEventListener('change', processo)
     </script>
 </body>
 </html>

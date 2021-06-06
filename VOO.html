@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //
+        //Modo "chato" do JavaScript
+        'use strict'
+
+        let voo = []
+        let lugares = []
+        let origem = []
+        let destino = []
+        let op
+        let op2
+        let num_voo
+        let cont_voo
+        let i
+        let naoE = 0
+
+        for(let i = 0 ; i<2; i++){
+            voo[i] = prompt("Insira o numero do voo: ")
+            origem[i] = prompt("Insira a origem do voo: ")
+            destino[i] = prompt("Insira o destino do voo: ")
+            lugares[i] = prompt("Insira os lugares vagos de 0 até 12:")
+            
+        }
+
+        do{
+            
+            op = parseInt(prompt("             Menu 1\n" + " Digite 1 - Consultar voo.\n "  + "Digite 2 - Reservar lugar.\n " + "Digite 3 - Finalizar programa.\n "))
+
+
+        
+
+        if(op === 1){
+           op2 = parseInt(prompt("             Menu 2\n" + "1 - Numero de voo\n" + "2 - Origem\n" + "3 - Destino\n"))
+                if(op2 === 1){
+                    num_voo = parseInt(prompt("Insira número do voo: "))
+
+                    for(cont_voo = 1; cont_voo < 13; cont_voo ++){
+
+                    }
+                }
+                else if(op2 ===2){
+
+                }
+                else if (op2 === 3){
+
+                }
+        }
+        
+        else if(op === 2){
+            num_voo = parseInt(prompt("Insira o numero do voo: "))
+            for(i= 1; i<13; i++){
+                if(num_voo == voo[i]){
+                    naoE = 1
+                    i = i + 13
+                }
+            }
+                if(naoE === 0){
+                    i = i + 13
+                    alert("Voo inexistente!")
+                }
+                else if(lugares[i] === 0){
+                    i = i + 13
+                    alert("Voo lotado")
+                }
+                else {
+                    lugares[i] = lugares[i] - 1
+                    alert("Reserva confirmada!")
+                }
+            
+        }
+
+        else if(op ===3){
+
+        }
+        }while(op <= 2)
+    </script>
+</body>
+</html>
