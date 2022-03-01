@@ -17,13 +17,17 @@ function encaminhar(){
                 num_voo = prompt("Insira o número do voo: ")
                 if (num_voo === elNrovoo.value){
                     if(elLugaresdisponiveis.value <= 0){ // Se não houver mais lugares ele informa que não tem mais lugares
-                        alert(`Número do voo: ${elNrovoo.value}` + `Origem: ${elOrigem.value}\n` + `Destino: ${elDestino.value}\n` + `Não há mais lugares disponiveis!`)
-                        elResultado.textContent = `Número do voo: ${elNrovoo.value}` + `Origem: ${elOrigem.value}\n` + `Destino: ${elDestino.value}\n` + `Lugares disponiveis: ${elLugaresdisponiveis.value}\n`
+                        alert(`Número do voo: ${elNrovoo.value}\n` + `Origem: ${elOrigem.value}\n` + `Destino: ${elDestino.value}\n` + `Não há mais lugares disponiveis!`)
+                        elResultado.textContent = `Número do voo: ${elNrovoo.value}\n` + `Origem: ${elOrigem.value}\n` + `Destino: ${elDestino.value}\n` + `Lugares disponiveis: ${elLugaresdisponiveis.value}\n`
                     }
                     else if(elLugaresdisponiveis.value > 0){ // Se houver lugares, ele informa a quantidade de lugares disponiveis
-                        alert(`Número do voo: ${elNrovoo.value}` + `Origem: ${elOrigem.value}\n` + `Destino: ${elDestino.value}\n` + `Não há mais lugares disponiveis: ${elLugaresdisponiveis.value}\n`)
-                        elResultado.textContent = `Número do voo: ${elNrovoo.value}` + `Origem: ${elOrigem.value}\n` + `Destino: ${elDestino.value}\n` + `Lugares disponiveis: ${elLugaresdisponiveis.value}\n`
+                        alert(`Número do voo: ${elNrovoo.value}\n` + `Origem: ${elOrigem.value}\n` + `Destino: ${elDestino.value}\n` + `lugares disponiveis: ${elLugaresdisponiveis.value}\n`)
+                        elResultado.textContent = `Número do voo: ${elNrovoo.value}\n` + `Origem: ${elOrigem.value}\n` + `Destino: ${elDestino.value}\n` + `Lugares disponiveis: ${elLugaresdisponiveis.value}\n`
                     }
+                }
+                else if(num_voo !== elNrovoo.value){
+                    alert(`Esse voo não existe!`)
+                        elResultado.textContent = `Esse voo não existe!`
                 }
             break
 
@@ -39,6 +43,10 @@ function encaminhar(){
                         alert("Não há mais lugares disponiveis")
                         elResultado.textContent = "Não há mais lugares disponiveis"
                     }
+                }
+                else if(num_voo !== elNrovoo.value){
+                    alert(`Esse voo não existe!`)
+                        elResultado.textContent = `Esse voo não existe!`
                 }
             break
 
