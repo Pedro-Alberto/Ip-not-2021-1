@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <label> Quantidade de dinheiro que uma pessoa tem na carteira: </label>
+        <input type="text" class="campo" id="dinheiro_disponivel">
+    </div>
+
+    <div id="resultado"> </div>
+
+    <div>
+        <button id="calcular">Calcular</button>
+    </div>
+
+    <script>
+        const elDinheiro = document.getElementById('dinheio-disponivel')
+        const elResultado = document.getElementById('resultado')
+        const elCalcular = document.getElementById('calcular')
+        
+        let resultado
+
+        function calcular(){
+            if(elDinheiro.value === 5,07){
+                elResultado = `Você pode comprar U$ 1,00 dolar com ${elDinheiro} `
+                alert(`${elResultado}`)
+            }
+            else
+            resultado = elDinheiro.value *  0,1972386587771203
+            alert(`${elResultado}`)
+            elResultado.textContent = resultado
+        }
+
+        
+
+        elCalcular.addEventListener('click', calcular(elDinheiro))
+    </script>
+</body>
+</html>
