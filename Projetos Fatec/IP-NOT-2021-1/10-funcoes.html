@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //
+        //Modo "chato" do JavaScript
+        'use strict'
+
+        //5! = 5 * 4 * 3 * 2 * 1
+        //4! = 4 * 3 * 2 * 1 
+
+        /*
+        let fat5 =1
+        for(let i = 5; i > 1; i--){
+            fat5= fat5 * i
+        }
+        alert(`O fatorial de 5 é ${fat5}`)
+
+        let fat4 =1
+        for(let i = 4; i > 1; i--){
+            fat4= fat4 * i
+        }
+        alert(`O fatorial de 4 é ${fat4}`)
+        */
+
+        //Princípio DRY = DON´T REPEAT YOURSELF (não se repita)
+
+        //Função é um trecho de código que é escrito apenas uma vez e 
+        // pode ser invocado (executado) várias vezes
+
+        //fatorial -> nome da função
+        //num -> parâmetro ou argumento da função
+
+        
+        function fatorial(num){         //Declaração da função
+            let fat = 1
+            for(let i = num; i >1 ;i--){
+            fat *= i        //Equivale a: fat= fat * i
+            }
+            return fat      //retorno da função
+        }
+        //Chamada de função. O valor retornado pela função serà
+        //atribuìdo a variavel x.
+        let x = fatorial(5)
+        let y = fatorial(4)
+        alert(`O fatorial de 5 calculado pela função é `+ x)
+        alert(`O fatorial de 4 calculado pela função é `+ y)
+        
+
+        //função para calcular a areá de uma das seguintes formas geométricas:
+        //quadrilatero, triângulo e de elipse
+        function calcArea(base, altura, forma){
+            let area
+            switch(forma){
+                case "Q":   //quadrilátero
+                    area = base * altura
+                    break
+                case "T":   //triângulo
+                    area = (base * altura) / 2
+                    break
+                case "E":   //elipse
+                    area = (base / 2) * (altura / 2) * Math.PI
+                    break
+                default: //formas inválidas
+                    area = NaN
+            }
+            return area
+        }
+
+        let areaTerreno = calcArea(8, 25, "Q")      //chamada da função
+        alert(`área do terreno: `+ areaTerreno)
+
+        alert(`área do terreno:` + calcArea(10,5, "T"))
+
+        alert(`área do terreno:` + calcArea(10, 5, "E"))
+
+        alert(`área do terreno:` + calcArea(10, 5 , "W"))
+
+
+
+    </script>
+</body>
+</html>

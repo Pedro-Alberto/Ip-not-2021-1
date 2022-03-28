@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Franca/SP no Censo 2010</title>
+    <style>
+        html {
+            font-family: Calibri, Arial, sans;
+            font-size: 16px;
+        }
+        body {
+            background-color: #95CFF4;
+        }
+        main {
+            background-color: #444444;
+            color: #dddddd;
+            padding: 40px;
+            max-width: 80%;
+            margin: 50px auto;
+            border-radius: 20px;
+            box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.6);
+        }
+        h1 {
+            color: #95CFF4;
+            text-align: center;
+            text-shadow: 1px 1px 2px rgb(255, 255, 255, 0.5);
+            font-size: 2.5rem;
+        }
+        img {
+            width: 400px;
+            display: block;
+            margin: 20px auto;
+        }
+        #dados {
+            text-align: center;
+            font-size: 1.2rem;
+            width: 550px;
+            margin: 0 auto;
+        }
+    </style>
+    
+</head>
+<body>
+    <main>
+        <h1>Franca/SP no Censo 2010</h1>
+        <img src="bandeira-franca.jpg" alt="Bandeira de Franca/SP" />
+        <ul id="dados"></ul>
+    </main>
+	
+	<script>
+        // Ativa verificações adicionais de variáveis
+        // Modo "chato" do JavaScript
+        'use strict'
+
+        const populacao = [
+            23,	    // +100 anos
+            118,	// 95 a 99 anos
+            513,	// 90 a 94 anos
+            1225,	// 85 a 89 anos
+            2773,	// 80 a 84 anos
+            4498,	// 75 a 79 anos
+            6524,	// 70 a 74 anos
+            8558,	// 65 a 69 anos
+            12147,	// 60 a 64 anos
+            15296,	// 55 a 59 anos
+            19013,	// 50 a 54 anos
+            22012,	// 45 a 49 anos
+            23369,	// 40 a 44 anos
+            23766,	// 35 a 39 anos
+            25220,	// 30 a 34 anos
+            27131,	// 25 a 29 anos
+            28617,	// 20 a 24 anos
+            27294,	// 15 a 19 anos
+            26479,	// 10 a 14 anos
+            23098,	// 5 a 9 anos
+            20966,	// 0 a 4 anos
+        ]
+
+        const info = {
+            altitude: 1040,
+            'aniversário': '28/11',
+            'gentílico': 'francano',
+            'área': 605.679            
+        }
+		
+		//captura da lista UL
+		const elDados = document.querySelector('#dados')
+        /*
+
+            1. Capture o elemento cujo id é "dados" em uma variável.
+
+            2. Declare uma variável e inicialize-a com o valor 0 (zero). Usando o loop for
+               tradicional ou o loop for..of, some os valores do vetor "populacao" e armazene
+               o resultado na variável.
+
+            3. Declare uma função que receba área e população e retorne a densidade populacional,
+               dividindo a segunda pela primeira.
+
+            4. Crie novos itens de lista em código e coloque neles as informações do objeto "info".
+               Os novos itens de lista devem ser adotados pelo elemento cujo id é "dados". Além das
+               informações contidas no objeto "info", devem ser criados também:
+               a) um item de lista para informar a população, mostrando o resultado da soma obtida
+                  na instrução nº 2.
+               b) um item de lista para informar a densidade populacional, mostrando o resultado de
+                  uma chamada à função delcarada na instrução nº 3.
+
+               Ao preencher o conteúdo dos quatro primeros itens de lista, você deve referenciar 
+               as propriedades do objeto "info".
+
+               Veja como deve ficar observando a imagem "resultado.jpg".
+
+            5. Comente as principais linhas do seu código, explicando seu propósito.
+
+            6. Gere um arquivo ZIP com os arquivos da prova e anexe-o no Microsoft Teams até o
+               horário limite.
+        */
+		
+		let soma = 0
+			//A variavel i passa por cada valor do vetor populacao, soma com a variavel soma e armazena o valor até que some todas as casas do vetor.
+        for(let i of populacao){
+            soma += i
+
+        }
+			// A função pega a variavel soma e divide pela variavel area que é uma caracteristica do vetor info, depois disso
+			// o valor da divisao é armazenado na variavel denpopu que é retornada pela função.
+		function densidadePop(area, populacao) {
+            return populacao / area
+
+            /*
+                Alternativa:
+                let densidade = populacao / area
+                return densidade
+            */
+        } 
+        
+
+		
+		//Inserindo os elementos dentro da lista UL com seus respectivos valores.
+		let novoItem = document.createElement('li')
+        novoItem.innerHTML = 'Altitude: '+ info.altitude + ' m'
+        elDados.appendChild(novoItem)
+
+        let novoItem2 = document.createElement('li')
+        novoItem2.innerHTML = 'Aniversário: ' + info.aniversário
+        elDados.appendChild(novoItem2)
+
+        let novoItem3 = document.createElement('li')  
+        novoItem3.innerHTML = 'Gentílico: ' + info.gentílico
+        elDados.appendChild(novoItem3)
+
+        let novoItem4 = document.createElement('li')  
+        novoItem4.innerHTML = 'área: ' + info.área + ' km²'
+        elDados.appendChild(novoItem4)
+        
+        let novoItem5 = document.createElement('li')
+        novoItem5.innerHTML = 'População Total : ' + soma + ' hab.'
+        elDados.appendChild(novoItem5)
+		
+		let novoItem6 = document.createElement('li')
+        novoItem6.innerHTML = `Densidade populacional: ${densidadePop(info['área'], soma)} hab./km²`
+        elDados.appendChild(novoItem6)
+
+        
+		
+    </script>
+</body>
+</html>
