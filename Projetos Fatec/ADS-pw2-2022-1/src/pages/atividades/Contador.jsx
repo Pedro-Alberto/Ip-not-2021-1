@@ -21,7 +21,7 @@ const [valor, setValor] = useState(0)
 
         </div>
         
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+        <div style={{ textAlign: "center" }}>
         <button onClick={Adicao}>+</button>
         <button onClick={Subtracao}>-</button>
         </div>
@@ -30,8 +30,3 @@ const [valor, setValor] = useState(0)
         </>
     )
 }
-
-
-//flex-direction: row;
- //   align-items: center;
-//}
