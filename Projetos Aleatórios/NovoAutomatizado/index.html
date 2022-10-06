@@ -1,0 +1,242 @@
+<html>
+
+<head>
+	<link rel="shortcut icon" href="./img/flavicon.ico" type="">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="./css/main.css">
+    <link rel="stylesheet" type="text/css" href="./css/slick.css" />
+    <title>Tratativas</title>
+</head>
+
+<body>
+    <header class="menu-principal">
+        <main>
+            <div class="header-1">
+                <!-- <div class="logo">
+                    <img src="./img/logo.png" />
+                </div> -->
+                
+            </div>
+        </main>
+    </header>
+    <main class="col-100 menu-urls">
+        <div class="header-2">
+            <div class="menu">
+                <ul>
+                    <li>
+                        <a href="#slider">Entrega</a>
+                    </li>
+                    <li>
+                        <a href="#mensagem">Cancelamento</a>
+                    </li>
+                    <li>
+                        <a href="#imagens">Pagamento</a>
+                    </li>
+                    <li>
+                        <a href="#propagandas">Troca</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#footer-2">Outros</a>
+                    </li>
+                </ul>
+            </div>
+            <div  class="busca">
+                <input id="pesquisa" placeholder="Pesquisar" type="text" />
+            </div>
+        </div>
+    </main>
+
+
+    <div class="container">
+        
+        <hr>
+        <div class="row"><h1>Entrega</h1></div>
+        
+        <div class="row">
+            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('trocaMarketplace')">Item coletado Marketplace</button>
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('repassarAutorizacaoDePostagem')">Repassado Autorização de postagem</button>
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('andamentoTrocaDentrodoPrazo')">Troca Ainda dentro do prazo</button>
+            </div>
+            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('postagemManual')">Solicitado postagem Manual</button>
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('autorizacaoPostagemMKTPDentrodoPrazo')">Autorização de Postagem MKTP no prazo</button>
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('clienteSemRastreioTroca')">Cliente Sem o Rastreio da devolução</button>
+            </div>
+            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('solicitadoReenvioRemoto')">Solicitado reenvio no remoto</button>
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('semRastreioDentrodoPrazo')">Sem rastreio dentro do prazo de atualização</button>
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('protocoloDentrodoPrazo')">Protocolo em aberto dentro do prazo</button>
+            </div>
+            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('canceladoPorFaltadeItem')">Cancelado Por falta de estoque</button>
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('retiradaNosCorreios')">Aguardando retirada nos correios</button>
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('pedidoDentrodoPrazo')">Pedido dentro do prazo</button>
+            </div>
+            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('AlteracaoNaFormadePagamento')">Alterção na forma de pagamento</button>
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('pagamentoEmAnaliseDentroDoPrazo')">Analise de crédito - Dentro do prazo</button>
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('clienteDesconheceEntregasemComprovante')">Cliente desconhece a entrega</button>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <textarea id="txtRascunho" cols="30" rows="10"></textarea>
+            <button type="button" class="btn btn-secondary" onclick="copiaMensagem()">COPIAR MENSAGEM</button>
+        </div>
+    </div>
+
+
+    <div class="container">
+        
+        <hr>
+        <div class="row"><h1>Cancelamento</h1></div>
+        <div class="row">
+            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('trocaMarketplace')">Item coletado Marketplace</button>
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('repassarAutorizacaoDePostagem')">Repassado Autorização de postagem</button>
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('andamentoTrocaDentrodoPrazo')">Troca Ainda dentro do prazo</button>
+            </div>
+            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('postagemManual')">Solicitado postagem Manual</button>
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('autorizacaoPostagemMKTPDentrodoPrazo')">Autorização de Postagem MKTP no prazo</button>
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('clienteSemRastreioTroca')">Cliente Sem o Rastreio da devolução</button>
+            </div>
+            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('solicitadoReenvioRemoto')">Solicitado reenvio no remoto</button>
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('semRastreioDentrodoPrazo')">Sem rastreio dentro do prazo de atualização</button>
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('protocoloDentrodoPrazo')">Protocolo em aberto dentro do prazo</button>
+            </div>
+            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('canceladoPorFaltadeItem')">Cancelado Por falta de estoque</button>
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('retiradaNosCorreios')">Aguardando retirada nos correios</button>
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('pedidoDentrodoPrazo')">Pedido dentro do prazo</button>
+            </div>
+            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('AlteracaoNaFormadePagamento')">Alterção na forma de pagamento</button>
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('pagamentoEmAnaliseDentroDoPrazo')">Analise de crédito - Dentro do prazo</button>
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('clienteDesconheceEntregasemComprovante')">Cliente desconhece a entrega</button>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <textarea id="txtRascunho" cols="30" rows="10"></textarea>
+            <button type="button" class="btn btn-secondary" onclick="copiaMensagem()">COPIAR MENSAGEM</button>
+        </div>
+    </div>
+
+
+    <div class="container">
+        
+        <hr>
+        <div class="row"><h1>Pagamento</h1></div>
+        <div class="row">
+            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('trocaMarketplace')">Item coletado Marketplace</button>
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('repassarAutorizacaoDePostagem')">Repassado Autorização de postagem</button>
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('andamentoTrocaDentrodoPrazo')">Troca Ainda dentro do prazo</button>
+            </div>
+            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('postagemManual')">Solicitado postagem Manual</button>
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('autorizacaoPostagemMKTPDentrodoPrazo')">Autorização de Postagem MKTP no prazo</button>
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('clienteSemRastreioTroca')">Cliente Sem o Rastreio da devolução</button>
+            </div>
+            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('solicitadoReenvioRemoto')">Solicitado reenvio no remoto</button>
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('semRastreioDentrodoPrazo')">Sem rastreio dentro do prazo de atualização</button>
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('protocoloDentrodoPrazo')">Protocolo em aberto dentro do prazo</button>
+            </div>
+            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('canceladoPorFaltadeItem')">Cancelado Por falta de estoque</button>
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('retiradaNosCorreios')">Aguardando retirada nos correios</button>
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('pedidoDentrodoPrazo')">Pedido dentro do prazo</button>
+            </div>
+            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('AlteracaoNaFormadePagamento')">Alterção na forma de pagamento</button>
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('pagamentoEmAnaliseDentroDoPrazo')">Analise de crédito - Dentro do prazo</button>
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('clienteDesconheceEntregasemComprovante')">Cliente desconhece a entrega</button>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <textarea id="txtRascunho" cols="30" rows="10"></textarea>
+            <button type="button" class="btn btn-secondary" onclick="copiaMensagem()">COPIAR MENSAGEM</button>
+        </div>
+    </div>
+
+    
+    
+    
+    </div>
+    <footer>
+        <div id ="footer" class="col-100 footer">
+            <div class="content">
+                <div class="col-4">
+                    <h3><b>Populr Post</b></h3>
+                    <p>Lorem Ipsum is simply dummy
+                        text of the printing.</p>
+                    <p class="clock">25-September 2013<p>
+                            <p>Lorem Ipsum is simply dummy
+                                text of the printing.</p>
+                            <p class="clock">25-September 2013<p>
+                </div>
+                <div class="col-4">
+                    <h3><b>Tags</b></h3>
+                    <p>apps blog blogroll christmas cms coda concert daily design develop dialog drinks envato food fun
+                        gallery gift holiday icon illustration ipad iphone journal jquery label link marketing mobile
+                        motion music photo profession quotation recipes show sound strategy tv typography video</p>
+                </div>
+                <div class="col-4">
+                    <h3><b>A little about us</b></h3>
+                    <p>
+                        There are many variations of passages of Lorem Ipsum available, but the majority have suffered
+                        alteration in some form, by injected humour, or randomised words which don't look even slightly
+                        believable.
+                        If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything.
+                    </p>
+                </div>
+                <div class="col-4">
+                    <h3><b>Get in touch</b></h3>
+                    <p>
+                        Lorem Ipsum is simply dummy
+                        of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
+                        text ever since.
+                    </p>
+                    <p class="local">Texas, US<p>
+                            <p class="emailico">email@email.com<p>
+                                    <p class="telefoneico">890-09880-45590<p>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+    <div id="footer-2" class="col-100 footer-2">
+        <div class="content">
+
+            <p>
+                There are many variations of passages of Lorem Ipsum available, but the majority have suffered
+            </p>
+				</div>
+		
+		                
+    </div>
+    <script type="text/javascript" src="./js/jquery.js"></script>
+    <script type="text/javascript" src="./js/script.js"> </script>
+    <script>
+        
+
+        function pesquisa(event){
+            let elBusca = document.querySelector('#pesquisa')
+            if(event.key === 'Enter') {
+                elBusca.value = ''
+                
+            }
+        }
+
+        elBusca.addEventListener('keydown', pesquisa)
+    </script>
+</body>
+
+</html>
