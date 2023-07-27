@@ -1,0 +1,286 @@
+<html>
+
+<head>
+	<link rel="shortcut icon" href="./img/flavicon.ico" type="">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="./css/main.css">
+    <link rel="stylesheet" type="text/css" href="./css/slick.css" />
+    <title>Tratativas</title>
+</head>
+
+<body>
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-custom">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">Tratativas</a>
+                <button class="navbar-toggler" type="button" 
+                    data-bs-toggle="collapse" 
+                    data-bs-target="#navbarSupportedContent" 
+                    aria-controls="navbarSupportedContent" 
+                    aria-expanded="false" 
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" 
+                                aria-current="page" href="#dadoscadastrais">Dados Cadastrais </a>
+                        </li>  
+                        <li class="nav-item">
+                            <a class="nav-link" 
+                                aria-current="page" href="#analiseinterna">Análises internas</a>
+                        </li>  
+                        <li class="nav-item">
+                            <a class="nav-link" 
+                                aria-current="page" href="#duvidaspagamentos">Duvidas pagamento</a>
+                        </li>  
+                        <li class="nav-item">
+                            <a class="nav-link" 
+                                aria-current="page" href="#transferencias">Transferências</a>
+                        </li>  
+                        <li class="nav-item">
+                            <a class="nav-link" 
+                                aria-current="page" href="#improdutivo">Improdutivo</a>
+                        </li>  
+                    </ul>    
+                </div>
+                <input type="text" id="searchInput" placeholder="Digite sua pesquisa...">
+<button type="button" onclick="search()">Pesquisar</button>
+            </div>
+        </nav>
+    </header>
+    
+
+
+    <div class="container">
+        
+        
+        <div class="row" id="dadoscadastrais"><h1>Dados Cadastrais</h1></div>
+        
+        <div class="row">
+            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('alteracao-email')">Alteração de e-mail</button>
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('link-email')">Link de redefição de senha</button>
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('desconhece-dadoscadastrais')">Desconhece dados do cadastro</button>
+            </div>
+            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('postagemManual')">Solicitado postagem Manual</button>
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('autorizacaoPostagemMKTPDentrodoPrazo')">Autorização de Postagem MKTP no prazo</button>
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('clienteSemRastreioTroca')">Cliente Sem o Rastreio da devolução</button>
+            </div>
+            
+        </div>
+        <hr>
+        <div class="row">
+            <textarea id="txtRascunho" cols="30" rows="10"></textarea>
+            <button type="button" class="btn btn-secondary" onclick="copiaMensagem()">COPIAR MENSAGEM</button>
+        </div>
+    </div>
+
+
+    <div class="container">
+        
+        <hr>
+        <div class="row" id="analiseinterna"><h1>Análises internas</h1></div>
+        <div class="row">
+            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('trocaMarketplace')">Duvidas do prazo de análise</button>
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('repassarAutorizacaoDePostagem')">Duvidas do cancelamento na análise</button>
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('andamentoTrocaDentrodoPrazo')">Troca Ainda dentro do prazo</button>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <textarea id="txtRascunho2" cols="30" rows="10"></textarea>
+            <button type="button" class="btn btn-secondary" onclick="copiaMensagem2()">COPIAR MENSAGEM</button>
+        </div>
+    </div>
+
+
+    <div class="container">
+        
+        <hr>
+        <div class="row" id="duvidaspagamentos"><h1>Duvidas Pagamento </h1></div>
+        <div class="row">
+            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('trocaMarketplace')">Pagamento cartão</button>
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('repassarAutorizacaoDePostagem')">Pagamento Boleto</button>
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('andamentoTrocaDentrodoPrazo')">Pagamento Pix</button>
+            </div>
+
+        <hr>
+        <div class="row">
+            <textarea id="txtRascunho3" cols="30" rows="10"></textarea>
+            <button type="button" class="btn btn-secondary" onclick="copiaMensagem3()">COPIAR MENSAGEM</button>
+        </div>
+
+        <hr>
+        <div class="row" id="transferencias"><h1>Transferências</h1></div>
+        <div class="row">
+            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('Posvendas')">Pós Vendas</button>
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('Televendas')">Televendas</button>
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('Recuperacao')">Recuperação</button>
+            </div>
+            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('RA')">Reclame aqui</button>
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('OE')">Operações Especiais</button>
+                
+            </div>
+           
+        </div>
+        <hr>
+        <div class="row">
+            <textarea id="txtRascunho4" cols="30" rows="10"></textarea>
+            <button type="button" class="btn btn-secondary" onclick="copiaMensagem4()">COPIAR MENSAGEM</button>
+        </div>
+
+        <hr>
+        <div class="row" id="improdutivo"><h1>Improdutivo</h1></div>
+        <div class="row">
+            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('trocaMarketplace')">Queda de ligação</button>
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('repassarAutorizacaoDePostagem')">Sem dados do titular</button>
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('andamentoTrocaDentrodoPrazo')">Encerrou antes do atendimento</button>
+            </div>
+            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('RA')">Reclame aqui</button>
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('OE')">Operações Especiais</button>
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('clienteSemRastreioTroca')">Cliente Sem o Rastreio da devolução</button>
+            </div>
+           
+        </div>
+        <hr>
+        <div class="row">
+            <textarea id="txtRascunho5" cols="30" rows="10"></textarea>
+            <button type="button" class="btn btn-secondary" onclick="copiaMensagem5()">COPIAR MENSAGEM</button>
+        </div>
+    </div>
+
+    <hr>
+        <div class="row" id="improdutivo"><h1>Outros</h1></div>
+        <div class="row">
+            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('protocolo')">Protocolo</button>
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('repassarAutorizacaoDePostagem')">Sem dados do titular</button>
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('andamentoTrocaDentrodoPrazo')">Encerrou antes do atendimento</button>
+            </div>
+            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('RA')">Reclame aqui</button>
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('OE')">Operações Especiais</button>
+                <button type="button" class="btn btn-outline-primary" onclick="geraMensagem('clienteSemRastreioTroca')">Cliente Sem o Rastreio da devolução</button>
+            </div>
+           
+        </div>
+        <hr>
+        <div class="row">
+            <textarea id="txtRascunho6" cols="30" rows="10"></textarea>
+            <button type="button" class="btn btn-secondary" onclick="copiaMensagem6()">COPIAR MENSAGEM</button>
+        </div>
+    </div>
+    </div>
+
+    
+    </div>
+
+    
+
+    
+    
+    
+    </div>
+    <div id="propagandas" class="col-100 bloco-logos">
+        <div class="content">
+            <h1>Contatos parceiros:</h1>
+            <div class="col-4">
+                <a href="https://www.magazineluiza.com.br" target= "_blank">
+                    <img alt="logo" title="Magalu" src="img/logo1.png" />
+                </a>
+                            <p style="text-align: center;" class="telefoneico" >0800 310 0002<p>
+            </div>
+            
+            <div class="col-4">
+                <a href="https://www.netshoes.com.br" target= "_blank">
+                    <img alt="logo" title="Netshoes" src="img/logo2.png" />
+                </a>
+                            <p style="text-align: center;" class="telefoneico">11-3028-5333<p>             
+            </div>
+            <div class="col-4">
+                
+                <a href="https://www.Kabum.com.br" target= "_blank">
+                    <img alt="logo" title="Kabum" src="img/logo3.png" />
+                </a>
+                            <p style="text-align: center;" class="telefoneico">19-2114-4444<p> 
+                
+            </div>
+            <div class="col-4">
+                <a href="https://www.epocacosmeticos.com.br" target= "_blank">
+                    <img alt="logo" title="Época" src="img/logo4.png" />
+                </a>
+                            <p style="text-align: center;" class="telefoneico">11-4020-2052<p>
+                
+            </div>
+        </div>
+    </div>
+    
+        
+    <script type="text/javascript" src="./js/jquery.js"></script>
+    <script type="text/javascript" src="./js/script.js"> </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        
+        function search() {
+  // Obtenha o valor digitado no campo de entrada de texto
+  var searchText = document.getElementById('searchInput').value;
+
+  // Verifique se o campo de pesquisa está vazio
+  if (searchText.trim() === '') {
+    // Caso esteja vazio, remova qualquer destaque existente de todos os botões
+    var buttons = document.getElementsByTagName('button');
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].style.backgroundColor = '';
+    }
+    return;
+  }
+
+  // Converta o texto da pesquisa e o conteúdo HTML para letras minúsculas para uma comparação sem distinção entre maiúsculas e minúsculas
+  searchText = searchText.toLowerCase();
+
+  // Obtenha todos os elementos HTML que contêm texto no seu site
+  var elements = document.getElementsByTagName('*');
+
+  // Percorra todos os elementos e verifique se o texto da pesquisa está presente em algum deles
+  for (var i = 0; i < elements.length; i++) {
+    var element = elements[i];
+
+    // Verifique se o elemento é um botão
+    if (element.tagName === 'BUTTON') {
+      // Converta o texto do botão para letras minúsculas
+      var buttonInnerText = element.innerText.toLowerCase();
+
+      // Verifique se o texto da pesquisa está presente no conteúdo do botão
+      if (buttonInnerText.indexOf(searchText) !== -1) {
+        // Faça algo para realçar o botão encontrado, por exemplo:
+        element.style.backgroundColor = 'yellow';
+      } else {
+        // Caso contrário, remova qualquer destaque existente
+        element.style.backgroundColor = '';
+      }
+    }
+  }
+  
+
+  
+}
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
